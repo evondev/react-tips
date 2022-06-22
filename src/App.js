@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
-import Card from "./components/card/Card";
-// uuid
-function App() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 5 * 1000);
-  }, []);
+import React from "react";
+import { Dropdown } from "./components/dropdown";
+import { useDropdown } from "./components/dropdown/dropdown-context";
+// create-react-app npx create-react-app
+// Compound component pattern
+const dropdownData = ["Viet Nam", "Cambodia", "France", "USA", "Thai Lan"];
+const App = () => {
   return (
-    <div className="grid grid-cols-4 gap-5">
-      {loading &&
-        Array(4)
-          .fill(0)
-          .map((item, index) => <Card.Loading key={index}></Card.Loading>)}
-      {!loading &&
-        Array(4)
-          .fill(0)
-          .map((item, index) => <Card key={index}></Card>)}
+    <div>
+      <Dropdown>
+        <Dropdown.Select>
+          <span>Select the country</span>
+        </Dropdown.Select>
+        <Dropdown.List>
+          {dropdownData.map((item, index) => (
+            <Dropdown.Item key={item}>{item}</Dropdown.Item>
+          ))}
+          <Dropdown.Search></Dropdown.Search>
+        </Dropdown.List>
+      </Dropdown>
     </div>
   );
-}
+};
 
 export default App;
