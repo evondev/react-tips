@@ -4,17 +4,7 @@ import { createContext, useState } from "react";
 const DropdownContext = createContext();
 
 function DropdownProvider(props) {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const handleToggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
-  const value = { showDropdown, handleToggleDropdown };
-  return (
-    <DropdownContext.Provider
-      value={value}
-      {...props}
-    ></DropdownContext.Provider>
-  );
+  return <DropdownContext.Provider {...props}></DropdownContext.Provider>;
 }
 // KentcDodds - Remix
 function useDropdown() {
