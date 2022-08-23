@@ -9,3 +9,12 @@
     font-family: "DM sans", sans-serif;
   }
 }
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  transform: scaleX(0.1) scaleY(0.1);
+  transition: all 300ms ease-in;
+  background-color: #f00;
+}
